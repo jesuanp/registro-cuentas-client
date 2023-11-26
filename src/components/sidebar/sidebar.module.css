@@ -1,0 +1,52 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.288);
+}
+
+.bodySidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 20rem;
+    background-color: #141414;
+    z-index: 3;
+}
+
+.fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.ulSidebar {
+    list-style: none;
+    padding: 0;
+    margin: 5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.liSidebar {
+    border-radius: 0.8rem;
+    padding: 1rem;
+    margin: 0 0.5rem;
+}
+.liSidebar:hover {
+    background-color: #650065;
+    cursor: pointer;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #fff;
+}
