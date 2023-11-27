@@ -42,29 +42,52 @@ export default function Account () {
     
     const [typeEditModal, setTypeEditModal] = useState('');
 
+    const [inputPassword, setInputPassword] = useState('');
+
     const [inputEmail, setInputEmail] = useState('');
+    
     const handleChange = e => {
-        setInputEmail(e.target.value)
+        console.log(e.target.name)
+        if(e.target.name === 'email')
+            setInputEmail(e.target.value)
+        if(e.target.name === 'password')
+            setInputPassword(e.target.value)
     }
 
     const [edit, setEdit] = useState({
         email: false,
         state: false,
-        cobrada: false
+        cobrada: false,
+        password: false
     });
+    // esta funcion es para ver que dato se va a editar
     const handleClickEdit = name => {
-        setInputEmail(account.email)
-        setEdit({
-            ...edit,
-            [name]: !edit[name]
-        })
+        if(name === 'email'){
+            setInputEmail(account.email)
+            setEdit({
+                ...edit,
+                [name]: !edit[name]
+            })
+        }
+        else if(name === 'password'){
+            setInputPassword(account.password)
+            setEdit({
+                ...edit,
+                [name]: !edit[name]
+            })
+        }
     }
 
     const handleSubmit = () => {
         if(inputEmail.trim() !== '') {
-            updateAccount({id: account.id,email: inputEmail})
+            updateAccount({id: account.id, email: inputEmail})
             handleClickEdit('email')
             setInputEmail('')
+        }
+        else if(inputPassword.trim() !== '') {
+            updateAccount({id: account.id, password: inputPassword})
+            handleClickEdit('password')
+            setInputPassword('')
         }
     }
     
@@ -127,6 +150,23 @@ export default function Account () {
                             
                             : <><span className={s.spanEmail}>{account && account.email}</span>
                                     <button onClick={()=>handleClickEdit('email')}>edit</button></>
+                        
+                        }
+                    </div>
+                    
+                </div>
+
+                <div className={s.divEmail} style={{marginTop: '1rem'}}>
+                    <span>Contraseña</span>
+
+                    <div className={s.divEmailButton}>
+                        {
+                            edit.password
+                            ? <><input className={s.inputEmail} type="text" name="password" value={inputPassword} onChange={handleChange} />
+                                <button onClick={handleSubmit} style={{backgroundColor: '#5AA469'}}>update</button></>
+                            
+                            : <><span className={s.spanEmail}>{account && account.password}</span>
+                                    <button onClick={()=>handleClickEdit('password')}>edit</button></>
                         
                         }
                     </div>
