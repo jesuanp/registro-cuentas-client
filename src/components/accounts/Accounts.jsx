@@ -14,6 +14,30 @@ export default function Accounts () {
         navigate(`/account/${id}`);
     }
 
+    // const addDateMap = () => {
+
+    //     var lastDate = '';
+
+    //     return (e) => {
+
+    //         let date = e.date.slice(0, 10).replaceAll('-', '/')
+    //         if(lastDate.length == 0){
+    //             lastDate = date
+    //             return (
+    //                 <span>{lastDate}</span>
+    //             )
+    //         }
+    //         if(lastDate !== date){
+    //             lastDate = date
+    //             return (
+    //                 <span>{lastDate}</span>
+    //             )
+    //         }
+    //     }
+    // }
+
+    // const clousure = addDateMap();
+
     useEffect(() => {
         if(!accounts == false){
             getAccounts();
@@ -40,21 +64,32 @@ export default function Accounts () {
                 </div>
 
                 {
-                    accounts.length && accounts.map((e, i) => (
-                        <div className={`${s.row} ${i % 2 !== 0 ? s.row1 : s.row2} ${e.banned && s.rowRed}`} onClick={()=>handleClickAccount(e.id)} key={e.id}>
+                    accounts.length && accounts.map((e, i, arr) => (
+                        <div  key={e.id}>
 
-                            <div className={s.column} >{e.date.slice(0, 10).replaceAll('-', '/')}</div>
+                            {
+                                (i == 0 || arr[i-1].date !== e.date)
+                                && 
+                                <div className={s.divDate}>
+                                    <span>{e.date.slice(0, 10).replaceAll('-', '/')}</span>
+                                </div>  
+                            }
 
-                            <div className={s.columnEmail} style={{maxWidth: '10rem'}}>
-                                <span>{e.email}</span>
+                            <div className={`${s.row} ${i % 2 !== 0 ? s.row1 : s.row2} ${e.banned && s.rowRed}`} onClick={()=>handleClickAccount(e.id)}>
+
+                                <div className={s.column} >{e.date.slice(0, 10).replaceAll('-', '/')}</div>
+
+                                <div className={s.columnEmail} style={{maxWidth: '10rem'}}>
+                                    <span>{e.email}</span>
+                                </div>
+
+                                <div className={`${s.column} ${s.hidden}`}>{e.banned ? 'Sí' : 'no'}</div>
+
+                                <div className={`${s.column} ${s.hidden}`}>{e.cobrada}</div>
+
+                                <div className={`${s.column} ${s.hidden}`}>{e.state}</div>
+
                             </div>
-
-                            <div className={`${s.column} ${s.hidden}`}>{e.banned ? 'Sí' : 'no'}</div>
-
-                            <div className={`${s.column} ${s.hidden}`}>{e.cobrada}</div>
-
-                            <div className={`${s.column} ${s.hidden}`}>{e.state}</div>
-
                         </div>
                     ))
                 }
