@@ -12,7 +12,8 @@ export default function AddAccount () {
     const [newAccount, setNewAccount] = React.useState({
         email: '',
         date: '',
-        state: ''
+        state: '',
+        password: ''
     });
 
     const handleChange = e => {
@@ -48,6 +49,11 @@ export default function AddAccount () {
                 <div className={s.divInput}>
                     <label>Email</label>
                     <input className={s.inputSelect} type="email" name="email" placeholder='Email...' onChange={handleChange} />
+                </div>
+
+                <div className={s.divInput}>
+                    <label>Contraseña</label>
+                    <input className={s.inputSelect} type="text" name="password" placeholder='Contraseña...' onChange={handleChange} />
                 </div>
 
                 <div className={s.containerDivInput}>
