@@ -12,12 +12,19 @@ export default (state = initialState, action) => {
 
         case OBTENER_TODAS_LAS_CUENTAS: return {
             ...state,
-            accounts: action.payload
+            accounts: action.payload.sort((a,b) => {
+                if (a.date < b.date) {
+                  return -1;
+                } else if (a.date > b.date) {
+                  return 1;
+                }
+                return 0;
+            })
         }
 
         case AGREGAR_UNA_CUENTA: return {
             ...state,
-            accounts: [...state.accounts, action.payload]
+            accounts: [action.payload, ...state.accounts]
         }
 
         case OBTENER_UNA_CUENTA: return {
