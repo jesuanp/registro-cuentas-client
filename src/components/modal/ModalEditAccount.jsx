@@ -17,7 +17,7 @@ export default function ModalEditAccount ({userId, type, cobrada, setTypeEditMod
                     <label>Estado</label>
                     <select className={s.inputSelect} name="state" id="" defaultValue={"elija una opción"} ref={selectRef} onChange={()=>setValueSelect(selectRef.current.value)}>
                         <option value="elija una opción" disabled>Elija una opción</option>
-                        <option value="Activa">Activa</option>
+                        <option value="Por trabajar">Por trabajar</option>
                         <option value="Trabajando">Trabajando</option>
                         <option value="Por cobrar">Por cobrar</option>
                     </select>

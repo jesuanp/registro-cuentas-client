@@ -66,7 +66,7 @@ export default function AddAccount () {
                         <label>Estado</label>
                         <select className={s.inputSelect} name="state" id="" defaultValue={"elija una opción"} onChange={handleChange} >
                             <option value="elija una opción" disabled>Elija una opción</option>
-                            <option value="Activa">Activa</option>
+                            <option value="Por trabajar">Por trabajar</option>
                             <option value="Trabajando">Trabajando</option>
                             <option value="Por cobrar">Por cobrar</option>
                         </select>
