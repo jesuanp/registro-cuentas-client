@@ -27,7 +27,7 @@ export default function Home () {
         if(!accounts == false){
             getAccounts();
         }
-    }, [accounts])
+    }, [])
 
     return (
         <div className={s.container}>

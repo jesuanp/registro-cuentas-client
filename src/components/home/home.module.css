@@ -37,3 +37,11 @@
     text-align: center;
     border-radius: 0.6rem;
 }
+
+@media (max-width: 420px) {
+    .containerTables {
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+}
