@@ -14,7 +14,7 @@
     left: 0;
     height: 100vh;
     width: 20rem;
-    background-color: #141414;
+    background-color: #313866;
     z-index: 3;
 }
 
@@ -42,7 +42,7 @@
     margin: 0 0.5rem;
 }
 .liSidebar:hover {
-    background-color: #650065;
+    background-color: #504099;
     cursor: pointer;
 }
 
