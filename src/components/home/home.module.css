@@ -2,5 +2,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
+}
+
+.containerTables {
+    display: flex;
+    gap: 1rem;
+}
+
+.table {
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.row {
+    background-color: #504099;
+    padding: 0.6rem;
+    display: flex;
+    border-radius: 0.6rem;
+
+}
+
+.row span {
+    /* background-color: rgb(118, 86, 46); */
+    
+}
+
+.property {
+    width: 8rem;
+}
+
+.numTotal {
+    background-color: #141414;
+    width: 2.8rem;
+    height: 1.5rem;
+    text-align: center;
+    border-radius: 0.6rem;
 }
