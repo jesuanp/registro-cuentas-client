@@ -56,11 +56,10 @@ export default function Accounts () {
             <div className={s.table}>
 
                 <div className={`${s.row} ${s.thead}`} style={{color: '#fff', cursor: 'auto'}} >
-                    <strong className={s.column}>Creada</strong>
                     <strong className={s.columnEmail}>Email</strong>
+                    <strong className={s.column}>estado</strong>
                     <strong className={`${s.column} ${s.hidden}`}>Baneada</strong>
                     <strong className={`${s.column} ${s.hidden}`}>Cobrada</strong>
-                    <strong className={`${s.column} ${s.hidden}`}>estado</strong>
                 </div>
 
                 {
@@ -77,17 +76,15 @@ export default function Accounts () {
 
                             <div className={`${s.row} ${i % 2 !== 0 ? s.row1 : s.row2} ${e.banned && s.rowRed}`} onClick={()=>handleClickAccount(e.id)}>
 
-                                <div className={s.column} >{e.date.slice(0, 10).replaceAll('-', '/')}</div>
-
                                 <div className={s.columnEmail} style={{maxWidth: '10rem'}}>
                                     <span>{e.email}</span>
                                 </div>
 
+                                <div className={s.column}>{e.state}</div>
+
                                 <div className={`${s.column} ${s.hidden}`}>{e.banned ? 'Sí' : 'no'}</div>
 
                                 <div className={`${s.column} ${s.hidden}`}>{e.cobrada}</div>
-
-                                <div className={`${s.column} ${s.hidden}`}>{e.state}</div>
 
                             </div>
                         </div>
